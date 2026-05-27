@@ -6,13 +6,12 @@
 
 body {
     background-image: url('images/1000405616.jpg');
-    backgroundcolor: #f8f4e9;
-    backgroundsize: cover;
-    backgroundposition: center;
-    backgroundrepeat: no-repeat;
-    backgroundattachment: fixed;
-    fontfamily: 'Georgia', serif;
-    lineheight: 1.6;
+   background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
     color: #333;
     margin: 0;
     padding: 0;
