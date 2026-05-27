@@ -5,8 +5,8 @@
 }
 
 body {
-    background-image: url('images/1000405616.jpg'); /* путь к фоновому изображению */
-    backgroundcolor: #f8f4e9; /* резервный цвет фона — если изображение не загрузится */
+    background-image: url (1000405616.jpg);
+    backgroundcolor: #f8f4e9;
     backgroundsize: cover;
     backgroundposition: center;
     backgroundrepeat: no-repeat;
