@@ -1,1 +1,1 @@
-# RuslanZulfiya.github.io
+# RuslanZulfiya.io
