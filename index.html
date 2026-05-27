@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Свадьба Руслана и Зульфии</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="heart">❤️</div>
+    <h1>Вы приглашены!</h1>
+    <div class="couple">Зульфия & Руслан</div>
+    <img src="couple.jpg" alt="Зульфия и Руслан" class="couple-photo">
+    <h2>скрепят свои сердца узами брака</h2>
+
+    <p class="date">26 августа 2026 года</p>
+
+    <div class="location">
+      <h3>📍 Место</h3>
+      <p>Банкетный Зал "Белый Шатер", ул. Еловая, 42</p>
+      <p>Начало в 15:30</p>
+    </div>
+
+    <p>С любовью и трепетом ждём вас на нашем празднике!</p>
+    <p>Будет тепло, красиво и по-семейному.</p>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="rsvp-form">
+      <label>Как вас зовут?<br>
+        <input type="text" name="name" placeholder="Ваше имя" required>
+      </label>
+      <label><br>Придёте ли вы?<br>
+        <select name="attendance" required>
+          <option value="">Выберите</option>
+          <option value="Да">Да, с радостью!</option>
+          <option value="Пока не знаю">Пока не знаю</option>
+          <option value="К сожалению, нет">К сожалению, нет</option>
+        </select>
+      </label>
+      <button type="submit" class="btn">Отправить ответ</button>
+    </form>
+
+    <footer>Создано с ❤️ специально для самых дорогих гостей</footer>
+  </div>
+</body>
+</html>
