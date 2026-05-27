@@ -1,6 +1,6 @@
 
 body {
-    background-image: url('images/your-photo.jpg'); /* путь к изображению */
+    background-image: url('images/1000405616.jpg'); /* путь к изображению */
     backgroundsize: cover; /* растягивает на весь экран */
     backgroundposition: center; /* центрирует изображение */
     backgroundattachment: fixed; /* фиксирует фон при прокрутке */
