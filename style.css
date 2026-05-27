@@ -1,0 +1,11 @@
+
+body {
+    background-image: url('images/1000405616.jpg'); /* путь к изображению */
+    backgroundsize: cover; /* растягивает на весь экран */
+    backgroundposition: center; /* центрирует изображение */
+    backgroundattachment: fixed; /* фиксирует фон при прокрутке */
+    backgroundrepeat: no-repeat; /* убирает повторение */
+    fontfamily: 'Georgia', serif;
+    lineheight: 1.6;
+    color: #333;
+}
