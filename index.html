@@ -101,13 +101,15 @@ setInterval(updateCountdown, 1000);
 document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
+
     const formData = new FormData(this);
     const name = formData.get('name');
     const guests = formData.get('guests');
     const contact = formData.get('contact');
 
+    // Данные для отправки в Telegram
     const telegramData = {
-        chat_id: '7605927409',
+        chat_id: '7605927409', // Ваш ID аккаунта
         text: `👰‍♂️🤵‍♂️ *Новое подтверждение участия!*\n\n*Имя:* ${name}\n*Гостей:* ${guests}\n*Контакты:* ${contact}\n\n_Отправлено с сайта приглашения_`
     };
 
