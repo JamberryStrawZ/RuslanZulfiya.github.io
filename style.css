@@ -15,7 +15,7 @@ body {
     background-attachment: fixed;
     font-family: 'Georgia', serif;
     line-height: 1.6;
-    color: #555; /* Тёмно‑серый основной цвет текста */
+    color: #555;
     margin: 0;
     padding: 0;
 }
@@ -32,7 +32,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #333; /* Очень тёмно‑серый для текста на светлом фоне */
+    color: #333;
 }
 
 .overlay {
@@ -41,7 +41,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(50, 50, 50, 0.6); /* Тёмно‑серый overlay */
+    background: rgba(50, 50, 50, 0.6);
     z-index: 1;
 }
 
@@ -55,14 +55,14 @@ body {
     font-family: 'Nicoletta Script SHA', cursive;
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    color: #222; /* Почти чёрный для максимальной контрастности */
+    color: #222;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #hero p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: #444; /* Средний серый */
+    color: #444;
 }
 
 #countdown {
@@ -71,9 +71,9 @@ body {
 }
 
 #timer {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-top: 1rem;
-    color: #2a2a2a; /* Очень тёмно‑серый */
+    color: #2a2a2a;
 }
 
 section {
@@ -85,15 +85,15 @@ section {
 h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #333; /* Тёмно‑серый */
+    color: #333;
     font-size: 2.2rem;
-    font-family: 'Nicoletta Script SHA', cursive; /* Шрифт для всех h2 */
+    font-family: 'Nicoletta Script SHA', cursive;
 }
 
 #details p, #program li {
     margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #555; /* Тёмно‑серый */
+    font-size: 0.8rem;
+    color: #555;
 }
 
 /* Галерея фото */
@@ -103,7 +103,7 @@ h2 {
 }
 
 #gallery h2 {
-    color: #333; /* Тёмно‑серый */
+    color: #333;
 }
 
 .photo-grid {
@@ -143,45 +143,47 @@ label {
 input, select {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ccc; /* Светло‑серый для границ */
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-family: inherit;
-    font-size: 1rem;
-    color: #333; /* Тёмно‑серый текст в полях */
+    font-size: 0.7rem;
+    color: #333;
 }
 
 button {
-    background: #555; /* Тёмно‑серый фон кнопки */
+    background: #555;
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     transition: background 0.3s;
     width: fit-content;
     margin: 0 auto;
-    font-family: 'Nicoletta Script SHA', cursive; /* Шрифт для кнопок */
+    font-family: 'Nicoletta Script SHA', cursive; 
 }
 
 button:hover {
-    background: #333; /* Ещё темнее при наведении */
+    background: #333;
 }
 
 #rsvpMessage {
     text-align: center;
     margin-top: 1rem;
     font-weight: bold;
-    color: #666; /* Средний серый для сообщений */
+    color: #666;
+    font-size: 0.8rem;
 }
 
 footer {
     text-align: center;
     padding: 2rem;
-    background: #f0f0f0; /* Светло‑серый фон футера */
-    color: #444; /* Средний серый текст */
-    border-top: 2px solid #ddd; /* Очень светло‑серый бордюр */
-    font-family: 'Nicoletta Script SHA', cursive; /* Шрифт для футера */
+    background: #f0f0f0;
+    color: #444;
+    border-top: 2px solid #ddd;
+    font-family: 'Nicoletta Script SHA', cursive;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -191,5 +193,21 @@ footer {
 
     h2 {
         font-size: 1.8rem;
+    }
+
+    /* Уменьшение размеров шрифтов для мобильных устройств */
+    #hero p {
+        font-size: 1.0rem;
+
+    #timer {
+        font-size: 1.3rem;
+    }
+
+    input, select {
+        font-size: 0.6rem;
+    }
+
+    button {
+        font-size: 0.7rem;
     }
 }
