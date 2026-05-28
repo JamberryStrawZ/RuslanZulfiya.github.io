@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Свадьба Зульфии и Руслана</title>
+    <title>Свадьба Руслана и Зульфии</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Главный экран с именами и отсчётом -->
     <section id="hero">
         <div class="overlay"></div>
         <h1>Зульфия & Руслан</h1>
         <p>Приглашаем вас разделить с нами самый счастливый день!</p>
-
-        <!-- Уменьшенный блок отсчёта времени -->
-        <section id="countdown">
+        <div id="countdown">
             <h2>До нашей свадьбы осталось:</h2>
             <div id="timer">
-                <span id="days">00</span>
-                <span id="hours">00</span>
-                <span id="minutes">00</span>
-                <span id="seconds">00</span>
+                <span id="days">00</span> дней
+                <span id="hours">00</span> часов
+                <span id="minutes">00</span> минут
+                <span id="seconds">00</span> секунд
             </div>
-        </section>
+        </div>
     </section>
 
-    <!-- Детали свадьбы -->
     <section id="details">
         <h2>Дата и место</h2>
         <p><strong>Дата:</strong> 26 августа 2026 года</p>
         <p><strong>Сбор гостей:</strong> 16:30</p>
         <p><strong>Церемония:</strong> 17:00</p>
-        <p><strong>Адрес:</strong> Банкетный Зал «Белый Шатер», Еловая ул., 42</p>
+        <p><strong>Адрес:</strong> Банкетный Зал "Белый Шатер", Еловая ул., 42</p>
     </section>
 
-    <!-- Программа дня -->
     <section id="program">
         <h2>Программа дня</h2>
         <ul>
@@ -46,62 +41,106 @@
         </ul>
     </section>
 
-    <!-- Галерея фото -->
-    <section id="gallery">
-        <h2>Наши моменты</h2>
-        <div class="photo-grid">
-            <img src="images/photo1.jpg" alt="Фото 1">
-            <img src="images/photo2.jpg" alt="Фото 2">
-            <img src="images/photo3.jpg" alt="Фото 3">
-            <img src="images/photo4.jpg" alt="Фото 4">
-        </div>
-    </section>
-
-    <!-- Форма подтверждения участия -->
     <section id="rsvp">
         <h2>Подтвердите ваше участие</h2>
         <form id="rsvpForm">
             <label>Ваше имя: <input type="text" name="name" required></label>
             <label>Количество гостей:
                 <select name="guests" required>
-                    <option value="1">1 гость</option>
-            <option value="2">2 гостя</option>
-            <option value="3">3 гостя</option>
-            <option value="4">4 гостя</option>
-        </select>
+                    <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+                </select>
             </label>
+            <label>Контакты (телефон/Telegram): <input type="text" name="contact" required></label>
             <button type="submit" id="submitBtn">Отправить подтверждение</button>
-            <div id="rsvpMessage"></div>
         </form>
+        <div id="rsvpMessage"></div>
     </section>
 
-    <!-- Футер -->
     <footer>
-        С любовью, Зульфия и Руслан
+        <p>Будем счастливы видеть вас!</p>
     </footer>
 
-    <!-- Скрипт для таймера (можно вынести в отдельный файл) -->
     <script>
-        // Целевая дата свадьбы
-        const weddingDate = new Date('2026-08-26T17:00:00').getTime();
+        function updateCountdown() {
+            const weddingDate = new Date('2026-08-26T17:00:00');
+            const now = new Date();
+            const timeLeft = weddingDate - now;
 
-        // Обновление таймера каждую секунду
-        setInterval(() => {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+            if (timeLeft < 0) {
+                document.getElementById('timer').innerHTML = 'Свадьба состоялась!';
+                clearInterval(countdownInterval);
+                return;
+            }
 
-            // Расчёт дней, часов, минут и секунд
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            // Обновление значений на странице
             document.getElementById('days').textContent = days.toString().padStart(2, '0');
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }, 1000);
+        }
+
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+
+    <script>
+        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const rsvpMessage = document.getElementById('rsvpMessage');
+
+            // Меняем текст кнопки на «Отправка...» и блокируем её
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            rsvpMessage.innerHTML = '';
+
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const guests = formData.get('guests');
+            const contact = formData.get('contact');
+
+            const telegramData = {
+                chat_id: '7605927409',
+                text: `👰‍♂️🤵‍♂️ *Новое подтверждение участия!*\n\n*Имя:* ${name}\n*Гостей:* ${guests}\n*Контакты:* ${contact}\n\n_Отправлено с сайта приглашения_`
+            };
+
+            try {
+                const response = await fetch('https://api.telegram.org/bot8933446302:AAEfxM7322fFLpO2W0zQ1_Ca2kEFIC1Zzdo/sendMessage', {
+                    method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(telegramData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        if (result.ok) {
+            // Успешная отправка: меняем текст кнопки (без сообщения)
+            submitBtn.textContent = 'Мы с нетерпением ждём Вас!';
+            this.reset();
+        } else {
+            throw new Error('Telegram API error: ' + result.description);
+        }
+    } catch (error) {
+        console.error('Ошибка отправки:', error);
+        // Ошибка отправки: меняем текст кнопки (без сообщений)
+        submitBtn.textContent = 'Упс... попробуйте снова!';
+    } finally {
+        // Разблокируем кнопку в любом случае
+        submitBtn.disabled = false;
+    }
+});
     </script>
 </body>
 </html>
