@@ -1,3 +1,6 @@
+/* Подключение шрифта Nicoletta Script SHA */
+@import url('https://fonts.googleapis.com/css2?family=Nicoletta+Script+SHA&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +9,7 @@
 
 body {
     background-image: url('images/1000405616.jpg');
-   background-size: 100% auto;
+    background-size: 100% auto;
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,7 +18,6 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-}
 }
 
 #hero {
@@ -48,10 +50,15 @@ body {
     z-index: 2;
 }
 
+/* Применение шрифта Nicoletta Script SHA к заголовкам */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nicoletta Script SHA', cursive;
+}
+
 #hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #hero p {
@@ -152,6 +159,7 @@ button {
     transition: background 0.3s;
     width: fit-content;
     margin: 0 auto;
+    font-family: 'Nicoletta Script SHA', cursive; /* Шрифт для кнопок */
 }
 
 button:hover {
@@ -170,8 +178,15 @@ footer {
     background: #f8f4e9;
     color: #8b4513;
     border-top: 2px solid #8b4513;
+    font-family: 'Nicoletta Script SHA', cursive; /* Шрифт для футера */
 }
 
 @media (max-width: 768px) {
     #hero h1 {
-        font-size: 2.5rem
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
