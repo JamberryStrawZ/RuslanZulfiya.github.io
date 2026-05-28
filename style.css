@@ -66,11 +66,8 @@ body {
 }
 
 #countdown {
-    background: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый */
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    color: #333; /* Тёмно‑серый */
+    background-color: transparent;
+    background-image: none;
 }
 
 #timer {
