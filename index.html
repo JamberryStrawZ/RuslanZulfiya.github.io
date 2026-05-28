@@ -53,9 +53,10 @@
                 </select>
             </label>
             <label>Контакты (телефон/Telegram): <input type="text" name="contact" required></label>
-            <button type="submit">Отправить подтверждение</button>
+            <button type="submit" id="submitBtn">Отправить подтверждение</button>
         </form>
         <div id="rsvpMessage"></div>
+        <div id="loading" style="display: none; color: #8b4513; font-style: italic;">Отправка...</div>
     </section>
 
     <footer>
@@ -70,7 +71,7 @@
 
             if (timeLeft < 0) {
                 document.getElementById('timer').innerHTML = 'Свадьба состоялась!';
-                clearInterval(countdownInterval); // Останавливаем таймер
+                clearInterval(countdownInterval);
                 return;
             }
 
@@ -93,6 +94,13 @@
         document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            // Показываем индикатор загрузки и отключаем кнопку
+            const loadingDiv = document.getElementById('loading');
+            const submitBtn = document.getElementById('submitBtn');
+            loadingDiv.style.display = 'block';
+            submitBtn.disabled = true;
+            document.getElementById('rsvpMessage').innerHTML = '';
+
             const formData = new FormData(this);
             const name = formData.get('name');
             const guests = formData.get('guests');
@@ -100,7 +108,7 @@
 
             // Данные для отправки в Telegram
             const telegramData = {
-                chat_id: '7605927409', // Ваш ID аккаунта
+                chat_id: '7605927409',
                 text: `👰‍♂️🤵‍♂️ *Новое подтверждение участия!*\n\n*Имя:* ${name}\n*Гостей:* ${guests}\n*Контакты:* ${contact}\n\n_Отправлено с сайта приглашения_`
             };
 
@@ -124,6 +132,10 @@
         console.error('Ошибка:', error);
         document.getElementById('rsvpMessage').innerHTML =
             '<p style="color: red;">Ошибка отправки. Попробуйте ещё раз.</p>';
+    } finally {
+        // Скрываем индикатор и включаем кнопку в любом случае
+        loadingDiv.style.display = 'none';
+        submitBtn.disabled = false;
     }
 });
     </script>
